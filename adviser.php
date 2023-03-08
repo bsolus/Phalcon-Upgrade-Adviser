@@ -72,29 +72,61 @@ class Adviser
     private function logPhalconClassesState(string $file): string
     {       
         try {
-            $fn = fopen($file, "r");
+            $fn = fopen($file, "r+");
         } catch (exception $e) {
             return "Error opening $file => " . $e->getMessage() . ";\n";
         }       
 
         $classes = [];
 
-        while(! feof($fn)) {           
-            if (preg_match("/Phalcon\\\([^\s;(]+)/", fgets($fn), $match)) {
+        $new_file = "";
+        $replaced = false;
+
+        while(! feof($fn)) {
+            $content = fgets($fn);
+            if (preg_match("/Phalcon\\\([^\s;(]+)/", $content, $match)) {
                 $classes[] = $match[0];
-            } 
+
+                if(!isset($this->phalconClasses[$match[0]])){
+                    $new_file .= $content;
+                    continue;
+                }
+
+                $start_string = substr($this->phalconClasses[$match[0]], 0, 6);
+                if ($start_string === "Rename" || $start_string === "Change") {
+                    $new_file .= $this->applyChanges($this->phalconClasses[$match[0]], $content);
+                    $replaced = true;
+                    continue;
+                }else{
+                    $new_file .= str_replace("\n", " // TODO - " . $this->phalconClasses[$match[0]] . "\n", $content );
+                    $replaced = true;
+                    continue;
+                }
+            }
+
+            $new_file .= $content;
         }
 
-        fclose($fn);
+        if($replaced){
+            file_put_contents($file, $new_file);
+        }
 
         if (count($classes) == 0) {
-            return $file . ":\nNo Phalcon classes found\n\n";
+            return "";
         }
 
-        return $file . ":\n" . $this->checkClassState($classes) . "\n\n";
+        return $this->checkClassState($classes, $file);
     }
 
-    private function checkClassState(array $classes):string
+    private function applyChanges($changes, $content)
+    {
+        $changes = explode(" | ", $changes);
+        $new_class =  str_replace("`", "", $changes[1]);
+        $replaced_content = preg_replace("/Phalcon\\\([^\s;(]+)/", $new_class, $content);
+        return isset($changes[2]) ? str_replace("\n", " // TODO - " . $changes[2] . "\n", $replaced_content) : $replaced_content;
+    }
+
+    private function checkClassState(array $classes, $file):string
     {
         $log = "";
 
@@ -104,10 +136,10 @@ class Adviser
             } elseif (strpos($class, "::") > 0) {
                 $log .= $class . " => Check possible changes in constant\n";
             } else {
-                $log .= $class . " => No changes\n";
+                //$log .= $class . " => No changes\n";
             }
         }
 
-        return $log;
+        return !$log ? "" : $file . ":\n" . $log . "\n\n";
     }
 }
