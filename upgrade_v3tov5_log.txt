@@ -1,0 +1,65 @@
+/Users/mvieira/Projects/beevo/scripts/checking-words-and-replace/shop/Libraries/Entities/EntitiesService.php:
+Phalcon\Db::FETCH_ASSOC) => Check possible changes in constant
+
+
+/Users/mvieira/Projects/beevo/scripts/checking-words-and-replace/shop/Libraries/FilterService.php:
+Phalcon\Mvc\Model\Resultset::HYDRATE_ARRAYS)->toArray => Check possible changes in constant
+
+
+/Users/mvieira/Projects/beevo/scripts/checking-words-and-replace/shop/Libraries/Filters/Base.php:
+Phalcon\Filter => Change | `Phalcon\Filter\Filter` | Renamed and Added __call() to allow using filter names as methods i.e. $filter->upper($input)
+
+
+/Users/mvieira/Projects/beevo/scripts/checking-words-and-replace/shop/Libraries/PaymentDocuments/PaymentDocumentHandler.php:
+Phalcon\Text => Rename | `Phalcon\Support\HelperFactory` | Check: https://docs.phalcon.io/5.0/en/upgrade#support
+
+
+/Users/mvieira/Projects/beevo/scripts/checking-words-and-replace/shop/Libraries/QuoteRequest/QuoteRequestService.php:
+Phalcon\Text => Rename | `Phalcon\Support\HelperFactory` | Check: https://docs.phalcon.io/5.0/en/upgrade#support
+Phalcon\Mvc\Model\Resultset::HYDRATE_OBJECTS)->toArray => Check possible changes in constant
+
+
+/Users/mvieira/Projects/beevo/scripts/checking-words-and-replace/shop/Libraries/SEORender.php:
+Phalcon\Mvc\Model\Resultset::HYDRATE_ARRAYS)->toArray => Check possible changes in constant
+Phalcon\Mvc\Model\Resultset::HYDRATE_ARRAYS)->toArray => Check possible changes in constant
+
+
+/Users/mvieira/Projects/beevo/scripts/checking-words-and-replace/shop/Models/Commission/Commissions.php:
+Phalcon\Mvc\Model\Message => Rename | `Phalcon\Messages\Message`
+
+
+/Users/mvieira/Projects/beevo/scripts/checking-words-and-replace/shop/Models/Commission/Rules.php:
+Phalcon\Mvc\Model\Message => Rename | `Phalcon\Messages\Message`
+
+
+/Users/mvieira/Projects/beevo/scripts/checking-words-and-replace/shop/Models/PaymentDocuments.php:
+Phalcon\Mvc\Model\Message => Rename | `Phalcon\Messages\Message`
+
+
+/Users/mvieira/Projects/beevo/scripts/checking-words-and-replace/shop/Models/PaymentMethods.php:
+Phalcon\Mvc\Model\Message => Rename | `Phalcon\Messages\Message`
+
+
+/Users/mvieira/Projects/beevo/scripts/checking-words-and-replace/shop/Models/ShippingMethodValues.php:
+Phalcon\Mvc\Model\Message => Rename | `Phalcon\Messages\Message`
+Phalcon\Mvc\Model\Message => Rename | `Phalcon\Messages\Message`
+Phalcon\Mvc\Model\Message => Rename | `Phalcon\Messages\Message`
+Phalcon\Mvc\Model\Message => Rename | `Phalcon\Messages\Message`
+Phalcon\Mvc\Model\Message => Rename | `Phalcon\Messages\Message`
+Phalcon\Mvc\Model\Message => Rename | `Phalcon\Messages\Message`
+Phalcon\Mvc\Model\Message => Rename | `Phalcon\Messages\Message`
+Phalcon\Mvc\Model\Message => Rename | `Phalcon\Messages\Message`
+
+
+/Users/mvieira/Projects/beevo/scripts/checking-words-and-replace/shop/Models/ShippingMethods.php:
+Phalcon\Mvc\Model\Message => Rename | `Phalcon\Messages\Message`
+
+
+/Users/mvieira/Projects/beevo/scripts/checking-words-and-replace/shop/Tasks/Cart.php:
+Phalcon\Filter => Change | `Phalcon\Filter\Filter` | Renamed and Added __call() to allow using filter names as methods i.e. $filter->upper($input)
+
+
+/Users/mvieira/Projects/beevo/scripts/checking-words-and-replace/shop/Widgets/Admin/ProductList/Widget.php:
+Phalcon\Db::FETCH_ASSOC) => Check possible changes in constant
+
+

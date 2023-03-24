@@ -1,0 +1,4 @@
+/Users/mvieira/Projects/beevo/scripts/checking-words-and-replace/Banners/Models/Banners.php:
+Phalcon\Mvc\Model\Message => Rename | `Phalcon\Messages\Message`
+
+

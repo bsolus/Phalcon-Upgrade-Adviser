@@ -121,6 +121,8 @@ class Adviser
     private function applyChanges($changes, $content)
     {
         $changes = explode(" | ", $changes);
+        echo "{$changes[0]} - {$changes[1]}\n";
+        
         $new_class =  str_replace("`", "", $changes[1]);
         $replaced_content = preg_replace("/Phalcon\\\([^\s;(]+)/", $new_class, $content);
         return isset($changes[2]) ? str_replace("\n", " // TODO - " . $changes[2] . "\n", $replaced_content) : $replaced_content;
